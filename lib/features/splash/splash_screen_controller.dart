@@ -12,7 +12,7 @@ class SplashScreenController extends BaseController {
 
   void _navigate() {
     Future.delayed(const Duration(seconds: 2), () {
-      iNavigator.pushReplacementNamed(RouteNames.home);
+      iNavigator.pushReplacementNamed(RouteNames.login);
     });
   }
 }

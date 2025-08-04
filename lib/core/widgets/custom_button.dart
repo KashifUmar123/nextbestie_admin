@@ -64,7 +64,7 @@ class CustomButton extends StatelessWidget {
       onTap: isDiabled ? null : onTap,
       child: Container(
         height: height ?? 55,
-        width: width ?? double.infinity,
+        width: width ?? 300,
         decoration: BoxDecoration(
             boxShadow: isPrimary
                 ? [

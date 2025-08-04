@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nextbestie_admin/core/extension/fonts_extension.dart';
+import 'package:nextbestie_admin/core/constants/app_assets.dart';
+import 'package:nextbestie_admin/core/widgets/custom_image.dart';
 import 'package:nextbestie_admin/core/widgets/custom_scaffold.dart';
 import 'package:nextbestie_admin/features/splash/splash_screen_controller.dart';
 
@@ -13,13 +14,19 @@ class SplashScreenView extends GetView<SplashScreenController> {
       body: GetBuilder(
         init: controller,
         builder: (_) {
-          return Column(
-            children: [
-              Text(
-                "HEllo Admim",
-                style: context.label30500,
-              ),
-            ],
+          return SizedBox(
+            height: Get.height,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                CustomImage(
+                  imageUrl: AppAssets.logo,
+                  width: 150,
+                  height: 150,
+                ),
+              ],
+            ),
           );
         },
       ),
