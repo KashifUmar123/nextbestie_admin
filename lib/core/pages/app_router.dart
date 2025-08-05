@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextbestie_admin/core/pages/route_names.dart';
 import 'package:nextbestie_admin/core/services/route_middleware.dart';
+import 'package:nextbestie_admin/features/articles/articles_screen_view.dart';
 import 'package:nextbestie_admin/features/home/home_layout.dart';
 import 'package:nextbestie_admin/features/login/login_screen_view.dart';
 import 'package:nextbestie_admin/features/splash/splash_screen_view.dart';
@@ -38,16 +39,9 @@ class AppRouter {
                     const Center(child: Text('Dashboard')),
               ),
               GoRoute(
-                path: RouteNames.dashboard,
-                name: RouteNames.dashboard,
-                builder: (context, state) =>
-                    const Center(child: Text('Dashboard')),
-              ),
-              GoRoute(
                 path: RouteNames.articles,
                 name: RouteNames.articles,
-                builder: (context, state) =>
-                    const Center(child: Text('Articles')),
+                builder: (context, state) => const ArticlesScreenView(),
               ),
               GoRoute(
                 path: RouteNames.addArticle,
@@ -88,8 +82,9 @@ class AppRouter {
               GoRoute(
                 path: RouteNames.blockedUsers,
                 name: RouteNames.blockedUsers,
-                builder: (context, state) =>
-                    const Center(child: Text('Blocked Users')),
+                builder: (context, state) {
+                  return const Center(child: Text('Blocked Users'));
+                },
               ),
             ],
           ),
@@ -97,4 +92,21 @@ class AppRouter {
       );
 
   static GlobalKey<NavigatorState> get rootNavigatorKey => _rootNavigatorKey;
+}
+
+class NoTransitionPage extends Page {
+  final Widget child;
+
+  const NoTransitionPage({required this.child});
+
+  @override
+  Route createRoute(BuildContext context) {
+    return PageRouteBuilder(
+      settings: this,
+      pageBuilder: (context, animation, secondaryAnimation) => child,
+      transitionDuration: Duration.zero,
+      reverseTransitionDuration: Duration.zero,
+      maintainState: true,
+    );
+  }
 }

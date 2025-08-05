@@ -16,6 +16,7 @@ class CustomScaffold extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
 
     return Scaffold(
+      backgroundColor: Color(0XFFFFFAFA),
       body: SizedBox(
         height: mediaQuery.size.height,
         width: mediaQuery.size.width,

@@ -6,9 +6,17 @@ import 'package:nextbestie_admin/core/pages/route_names.dart';
 class HomeScreenController extends BaseController {
   HomeScreenController(super.iNavigator);
 
+  int index = 0;
+
   void onLogout() async {
     await Get.find<AdminController>().logout();
     iNavigator.pushReplacementNamed(RouteNames.login);
+  }
+
+  void onSidebarItemTap(int index, String route) {
+    this.index = index;
+    navigateToRoute(route);
+    update();
   }
 
   void navigateToRoute(String route) {
