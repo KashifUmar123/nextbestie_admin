@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nextbestie_admin/core/pages/route_names.dart';
 import 'package:nextbestie_admin/core/services/route_middleware.dart';
 import 'package:nextbestie_admin/features/articles/articles_screen_view.dart';
+import 'package:nextbestie_admin/features/create_article/create_article_screen.dart';
 import 'package:nextbestie_admin/features/home/home_layout.dart';
 import 'package:nextbestie_admin/features/login/login_screen_view.dart';
 import 'package:nextbestie_admin/features/splash/splash_screen_view.dart';
@@ -52,8 +53,7 @@ class AppRouter {
               GoRoute(
                 path: RouteNames.addArticle,
                 name: RouteNames.addArticle,
-                builder: (context, state) =>
-                    const Center(child: Text('Add Article')),
+                builder: (context, state) => const CreateArticleScreen(),
               ),
               GoRoute(
                 path: RouteNames.categories,

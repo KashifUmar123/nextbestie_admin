@@ -19,7 +19,7 @@ class ArticlesScreenView extends StatelessWidget {
         return Column(
           children: [
             20.verticalSpace,
-            _buildHeader(context),
+            _buildHeader(context, controller),
             20.verticalSpace,
             Expanded(
               child: _buildArticlesTable(context, controller),
@@ -31,7 +31,8 @@ class ArticlesScreenView extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(BuildContext context) {
+  Widget _buildHeader(
+      BuildContext context, ArticlesScreenController controller) {
     return Row(
       children: [
         15.horizontalSpace,
@@ -44,7 +45,7 @@ class ArticlesScreenView extends StatelessWidget {
         const Spacer(),
         CustomButton(
           text: "Create new article",
-          onTap: () {},
+          onTap: controller.onAddNewArticle,
           backgroundColor: AppColors.pink,
           textStyle: context.label14400.copyWith(
             color: AppColors.white,

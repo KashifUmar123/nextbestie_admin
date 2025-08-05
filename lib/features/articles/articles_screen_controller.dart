@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextbestie_admin/core/base/base_controller.dart';
+import 'package:nextbestie_admin/core/pages/route_names.dart';
 
 class Article {
   final String title;
@@ -164,6 +165,10 @@ class ArticlesScreenController extends BaseController {
     currentPage = 1;
     hasMoreData = allArticles.length > itemsPerPage;
     update();
+  }
+
+  void onAddNewArticle() {
+    iNavigator.pushNamed(RouteNames.addArticle);
   }
 
   // Load more articles for pagination
