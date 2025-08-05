@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nextbestie_admin/core/pages/route_names.dart';
-import 'package:nextbestie_admin/core/services/route_middleware.dart';
 import 'package:nextbestie_admin/features/home/home_screen_bindings.dart';
 import 'package:nextbestie_admin/features/home/home_screen_view.dart';
 import 'package:nextbestie_admin/features/login/login_screen_bindings.dart';
@@ -52,7 +51,7 @@ class AppRoutes {
       transitionDuration: transitionDuration,
       preventDuplicates: preventDuplicates,
       maintainState: maintainState,
-      middlewares: middlewares ?? [RouteMiddleware()],
+      middlewares: middlewares ?? [],
     );
   }
 }

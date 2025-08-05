@@ -10,4 +10,9 @@ class HomeScreenController extends BaseController {
     await Get.find<AdminController>().logout();
     iNavigator.pushReplacementNamed(RouteNames.login);
   }
+
+  void navigateToRoute(String route) {
+    // Use go() for nested route navigation to prevent hot reloads
+    iNavigator.offAndPushNamed(route);
+  }
 }

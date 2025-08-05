@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
@@ -14,10 +13,12 @@ class CustomScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+
     return Scaffold(
       body: SizedBox(
-        height: Get.height,
-        width: Get.width,
+        height: mediaQuery.size.height,
+        width: mediaQuery.size.width,
         child: Column(
           children: [
             Center(

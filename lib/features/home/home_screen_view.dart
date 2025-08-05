@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nextbestie_admin/core/extension/fonts_extension.dart';
+import 'package:nextbestie_admin/core/pages/i_navigator.dart';
 import 'package:nextbestie_admin/core/widgets/custom_button.dart';
 import 'package:nextbestie_admin/core/widgets/custom_scaffold.dart';
 import 'package:nextbestie_admin/features/home/home_screen_controller.dart';
 
-class HomeScreenView extends GetView<HomeScreenController> {
+class HomeScreenView extends StatelessWidget {
   const HomeScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
       body: GetBuilder(
-        init: controller,
-        builder: (_) {
+        init: HomeScreenController(Get.find<INavigator>()),
+        builder: (controller) {
           return Column(
             children: [
               Center(

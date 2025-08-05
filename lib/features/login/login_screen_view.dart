@@ -5,6 +5,7 @@ import 'package:nextbestie_admin/core/constants/app_assets.dart';
 import 'package:nextbestie_admin/core/constants/app_colors.dart';
 import 'package:nextbestie_admin/core/extension/fonts_extension.dart';
 import 'package:nextbestie_admin/core/extension/num_extension.dart';
+import 'package:nextbestie_admin/core/pages/i_navigator.dart';
 import 'package:nextbestie_admin/core/utils/dimension.dart';
 import 'package:nextbestie_admin/core/widgets/custom_button.dart';
 import 'package:nextbestie_admin/core/widgets/custom_image.dart';
@@ -12,15 +13,15 @@ import 'package:nextbestie_admin/core/widgets/custom_scaffold.dart';
 import 'package:nextbestie_admin/core/widgets/custom_textfield.dart';
 import 'package:nextbestie_admin/features/login/login_screen_controller.dart';
 
-class LoginScreenView extends GetView<LoginScreenController> {
+class LoginScreenView extends StatelessWidget {
   const LoginScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
       body: GetBuilder(
-        init: controller,
-        builder: (_) {
+        init: LoginScreenController(Get.find<INavigator>()),
+        builder: (controller) {
           return Column(
             children: [
               100.verticalSpace,

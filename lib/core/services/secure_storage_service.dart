@@ -38,6 +38,20 @@ class SecureStorageService {
     );
   }
 
+  Future<void> setLoggedIn(bool value) async {
+    await _writeSecureData(
+      key: SecureStorageConstants.isLoggedIn,
+      value: value.toString(),
+    );
+  }
+
+  Future<bool> getLoggedIn() async {
+    final value = await _readSecureData(
+      key: SecureStorageConstants.isLoggedIn,
+    );
+    return value == "true";
+  }
+
   Future<dynamic> read(String key) async {
     return await _storage.read(key: key);
   }
@@ -45,4 +59,5 @@ class SecureStorageService {
 
 class SecureStorageConstants {
   static const String token = "token";
+  static const String isLoggedIn = "isLoggedIn";
 }
