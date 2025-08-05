@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nextbestie_admin/core/constants/app_colors.dart';
 
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
@@ -16,7 +17,7 @@ class CustomScaffold extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
 
     return Scaffold(
-      backgroundColor: Color(0XFFFFFAFA),
+      backgroundColor: AppColors.background,
       body: SizedBox(
         height: mediaQuery.size.height,
         width: mediaQuery.size.width,

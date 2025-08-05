@@ -56,7 +56,7 @@ class HomeLayout extends StatelessWidget {
                                     RouteNames.articles,
                                     Icons.article,
                                     controller,
-                                    index: 1,
+                                    index: 0,
                                   ),
                                   _buildSidebarItem(
                                     context,
@@ -64,7 +64,7 @@ class HomeLayout extends StatelessWidget {
                                     RouteNames.categories,
                                     Icons.category,
                                     controller,
-                                    index: 2,
+                                    index: 1,
                                   ),
                                   _buildSidebarItem(
                                     context,
@@ -72,7 +72,7 @@ class HomeLayout extends StatelessWidget {
                                     RouteNames.newsletters,
                                     Icons.email,
                                     controller,
-                                    index: 3,
+                                    index: 2,
                                   ),
                                   _buildSidebarItem(
                                     context,
@@ -80,7 +80,7 @@ class HomeLayout extends StatelessWidget {
                                     RouteNames.userReports,
                                     Icons.report,
                                     controller,
-                                    index: 4,
+                                    index: 3,
                                   ),
                                   _buildSidebarItem(
                                     context,
@@ -88,7 +88,7 @@ class HomeLayout extends StatelessWidget {
                                     RouteNames.blockedUsers,
                                     Icons.block,
                                     controller,
-                                    index: 5,
+                                    index: 4,
                                   ),
                                 ],
                               ),
@@ -145,29 +145,36 @@ class HomeLayout extends StatelessWidget {
     HomeScreenController controller, {
     required int index,
   }) {
-    return InkWell(
-      onTap: () => controller.onSidebarItemTap(index, route),
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-          color: controller.index == index
-              ? AppColors.pink.withValues(alpha: .1)
-              : Colors.transparent,
-          borderRadius: kRadiusAll(10),
-        ),
-        child: Row(
-          children: [
-            Icon(
-              icon,
-              color: AppColors.articleTextColor,
-            ),
-            10.horizontalSpace,
-            Text(
-              title,
-              style: context.label15400,
-            ),
-          ],
+    return ClipRRect(
+      borderRadius: kRadiusAll(12),
+      child: InkWell(
+        onTap: () => controller.onSidebarItemTap(index, route),
+        splashColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        focusColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(
+            color: controller.index == index
+                ? AppColors.pink.withValues(alpha: .1)
+                : Colors.transparent,
+            borderRadius: kRadiusAll(10),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                icon,
+                color: AppColors.articleTextColor,
+              ),
+              10.horizontalSpace,
+              Text(
+                title,
+                style: context.label15400,
+              ),
+            ],
+          ),
         ),
       ),
     );

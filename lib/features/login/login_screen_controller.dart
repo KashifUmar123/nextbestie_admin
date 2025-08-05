@@ -30,7 +30,7 @@ class LoginScreenController extends BaseController {
     if (emailController.text.trim() == "admin@gmail.com" &&
         passwordController.text.trim() == "Admin@123") {
       await Get.find<AdminController>().login();
-      iNavigator.pushReplacementNamed(RouteNames.home);
+      iNavigator.pushReplacementNamed(RouteNames.articles);
     } else {
       AppUtils.snackbar(
         title: "Error",

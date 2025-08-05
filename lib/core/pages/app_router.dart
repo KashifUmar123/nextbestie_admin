@@ -39,6 +39,12 @@ class AppRouter {
                     const Center(child: Text('Dashboard')),
               ),
               GoRoute(
+                path: RouteNames.dashboard,
+                name: RouteNames.dashboard,
+                builder: (context, state) =>
+                    const Center(child: Text('Dashboard')),
+              ),
+              GoRoute(
                 path: RouteNames.articles,
                 name: RouteNames.articles,
                 builder: (context, state) => const ArticlesScreenView(),

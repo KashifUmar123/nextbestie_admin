@@ -18,7 +18,7 @@ class SplashScreenController extends BaseController {
     final isLoggedIn = await Get.find<SecureStorageService>().getLoggedIn();
 
     if (isLoggedIn) {
-      iNavigator.pushReplacementNamed(RouteNames.home);
+      iNavigator.pushReplacementNamed(RouteNames.articles);
     } else {
       iNavigator.pushReplacementNamed(RouteNames.login);
     }
