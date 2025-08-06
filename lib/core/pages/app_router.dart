@@ -3,10 +3,14 @@ import 'package:go_router/go_router.dart';
 import 'package:nextbestie_admin/core/pages/route_names.dart';
 import 'package:nextbestie_admin/core/services/route_middleware.dart';
 import 'package:nextbestie_admin/features/articles/articles_screen_view.dart';
+import 'package:nextbestie_admin/features/blocked_users/blocked_screen_view.dart';
+import 'package:nextbestie_admin/features/categories/categories_screen_view.dart';
 import 'package:nextbestie_admin/features/create_article/create_article_screen.dart';
 import 'package:nextbestie_admin/features/home/home_layout.dart';
 import 'package:nextbestie_admin/features/login/login_screen_view.dart';
+import 'package:nextbestie_admin/features/news_letters/news_letters_screen_view.dart';
 import 'package:nextbestie_admin/features/splash/splash_screen_view.dart';
+import 'package:nextbestie_admin/features/user_reports/user_reports_screen_view.dart';
 
 class AppRouter {
   static final GlobalKey<NavigatorState> _rootNavigatorKey =
@@ -34,18 +38,6 @@ class AppRouter {
             },
             routes: [
               GoRoute(
-                path: RouteNames.home,
-                name: RouteNames.home,
-                builder: (context, state) =>
-                    const Center(child: Text('Dashboard')),
-              ),
-              GoRoute(
-                path: RouteNames.dashboard,
-                name: RouteNames.dashboard,
-                builder: (context, state) =>
-                    const Center(child: Text('Dashboard')),
-              ),
-              GoRoute(
                 path: RouteNames.articles,
                 name: RouteNames.articles,
                 builder: (context, state) => const ArticlesScreenView(),
@@ -58,8 +50,7 @@ class AppRouter {
               GoRoute(
                 path: RouteNames.categories,
                 name: RouteNames.categories,
-                builder: (context, state) =>
-                    const Center(child: Text('Categories')),
+                builder: (context, state) => const CategoriesScreenView(),
               ),
               GoRoute(
                 path: RouteNames.addCategory,
@@ -70,8 +61,7 @@ class AppRouter {
               GoRoute(
                 path: RouteNames.newsletters,
                 name: RouteNames.newsletters,
-                builder: (context, state) =>
-                    const Center(child: Text('Newsletters')),
+                builder: (context, state) => const NewsLettersScreenView(),
               ),
               GoRoute(
                 path: RouteNames.addNewsletter,
@@ -82,14 +72,13 @@ class AppRouter {
               GoRoute(
                 path: RouteNames.userReports,
                 name: RouteNames.userReports,
-                builder: (context, state) =>
-                    const Center(child: Text('User Reports')),
+                builder: (context, state) => const UserReportsScreenView(),
               ),
               GoRoute(
                 path: RouteNames.blockedUsers,
                 name: RouteNames.blockedUsers,
                 builder: (context, state) {
-                  return const Center(child: Text('Blocked Users'));
+                  return const BlockedScreenView();
                 },
               ),
             ],
