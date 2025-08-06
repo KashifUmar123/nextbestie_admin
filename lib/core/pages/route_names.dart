@@ -5,7 +5,6 @@ class RouteNames {
 
   // Home and nested routes
   static const String home = '/home';
-  static const String dashboard = '/home/dashboard';
   static const String articles = '/home/articles';
   static const String addArticle = '/home/add-article';
   static const String categories = '/home/categories';

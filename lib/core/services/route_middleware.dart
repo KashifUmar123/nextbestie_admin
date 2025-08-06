@@ -20,7 +20,7 @@ class RouteMiddleware {
     // If user is authenticated and trying to access public routes, redirect to dashboard
     if (isAuthenticated && publicRoutes.contains(state.fullPath)) {
       log("MIDDLEWARE - AUTHENTICATED USER TRYING TO ACCESS PUBLIC ROUTE, REDIRECTING TO DASHBOARD");
-      return RouteNames.dashboard;
+      return RouteNames.articles;
     }
 
     // If user is not authenticated and trying to access protected routes, redirect to login
@@ -32,7 +32,7 @@ class RouteMiddleware {
     // Redirect /home to /home/dashboard for shell routing
     if (isAuthenticated && state.fullPath == RouteNames.home) {
       log("MIDDLEWARE - REDIRECTING /home TO /home/dashboard");
-      return RouteNames.dashboard;
+      return RouteNames.articles;
     }
 
     log("MIDDLEWARE - ALLOWING ACCESS TO: ${state.fullPath}");
