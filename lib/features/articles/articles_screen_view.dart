@@ -150,10 +150,11 @@ class ArticlesScreenView extends StatelessWidget {
                     _buildArticleRow(
                       context,
                       article.title,
-                      article.category,
-                      article.lastEdited,
+                      article.category!.title,
+                      article.updatedAt.toString(),
                       onEdit: () => controller.editArticle(article),
-                      onDelete: () => controller.deleteArticle(article),
+                      onDelete: () => controller.onDeleteArticleDialogue(
+                          context, article.title),
                     ),
                     if (index < controller.articles.length - 1) _buildDivider(),
                   ],

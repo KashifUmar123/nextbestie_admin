@@ -44,6 +44,7 @@ class NewsLettersScreenView extends GetView {
         const Spacer(),
         CustomButton(
           text: "Create new news letter",
+          onTap: controller.onAddNewNewsLetter,
           // onTap: controller.onAddNewArticle,
           backgroundColor: AppColors.pink,
           textStyle: context.label14400.copyWith(
@@ -139,9 +140,10 @@ class NewsLettersScreenView extends GetView {
                     _buildArticleRow(
                       context,
                       newsLetter.title,
-                      newsLetter.lastEdited,
+                      newsLetter.updatedAt.toString(),
                       onEdit: () => {},
-                      onDelete: () => {},
+                      onDelete: () => controller.onDeleteNewsLetterDialogue(
+                          context, newsLetter.title),
                     ),
                     if (index < controller.newsLetters.length - 1)
                       _buildDivider(),

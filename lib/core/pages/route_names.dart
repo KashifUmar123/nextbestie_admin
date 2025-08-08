@@ -13,4 +13,5 @@ class RouteNames {
   static const String addNewsletter = '/home/add-newsletter';
   static const String userReports = '/home/user-reports';
   static const String blockedUsers = '/home/blocked-users';
+  static const String userDetails = '/home/user-details';
 }

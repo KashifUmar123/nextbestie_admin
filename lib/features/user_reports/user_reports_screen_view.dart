@@ -123,8 +123,7 @@ class UserReportsScreenView extends StatelessWidget {
                       context,
                       userReport.userName,
                       userReport.reportData,
-                      onEdit: () => {},
-                      onDelete: () => {},
+                      onTap: controller.navigateToUserDetails,
                     ),
                     if (index < controller.userReports.length - 1)
                       _buildDivider(),
@@ -142,8 +141,7 @@ class UserReportsScreenView extends StatelessWidget {
     BuildContext context,
     String title,
     String description, {
-    VoidCallback? onEdit,
-    VoidCallback? onDelete,
+    VoidCallback? onTap,
   }) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -172,7 +170,7 @@ class UserReportsScreenView extends StatelessWidget {
             flex: 1,
             child: _buildActionButton(
               icon: Icons.arrow_forward_ios,
-              onTap: onEdit ?? () {},
+              onTap: onTap ?? () {},
             ),
           ),
         ],

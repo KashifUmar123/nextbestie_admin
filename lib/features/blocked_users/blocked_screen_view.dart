@@ -113,8 +113,9 @@ class BlockedScreenView extends StatelessWidget {
                     _buildArticleRow(
                       context,
                       blockedUser.name,
-                      onEdit: () => {},
-                      onDelete: () => {},
+                      unblockUser: () {
+                        controller.unblockUserDialogue(context);
+                      },
                     ),
                     if (index < controller.blockedUsers.length - 1)
                       _buildDivider(),
@@ -131,8 +132,7 @@ class BlockedScreenView extends StatelessWidget {
   Widget _buildArticleRow(
     BuildContext context,
     String title, {
-    VoidCallback? onEdit,
-    VoidCallback? onDelete,
+    VoidCallback? unblockUser,
   }) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -150,11 +150,14 @@ class BlockedScreenView extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: Text(
-              "Unblock",
-              style: context.label14400.copyWith(
-                color: AppColors.pink,
-                fontWeight: FontWeight.w700,
+            child: GestureDetector(
+              onTap: unblockUser,
+              child: Text(
+                "Unblock",
+                style: context.label14400.copyWith(
+                  color: AppColors.pink,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
           ),
