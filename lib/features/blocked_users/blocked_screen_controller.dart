@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nextbestie_admin/core/base/base_controller.dart';
+import 'package:nextbestie_admin/core/widgets/custom_dialogue_box.dart';
 
 class BlockedUser {
   String name;
@@ -59,5 +61,18 @@ class BlockedScreenController extends BaseController {
     currentPage = 1;
     hasMoreData = allBlockedUsers.length > itemsPerPage;
     update();
+  }
+
+  void unblockUserDialogue(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => CustomDialogueBox(
+        title: 'Unblock User',
+        description: 'Are you sure you want to unblock this user?',
+        leftButton: 'Unblock',
+        rightButton: 'Cancel',
+        // If your CustomDialogueBox supports callbacks, wire them:
+      ),
+    );
   }
 }

@@ -6,10 +6,12 @@ import 'package:nextbestie_admin/features/articles/articles_screen_view.dart';
 import 'package:nextbestie_admin/features/blocked_users/blocked_screen_view.dart';
 import 'package:nextbestie_admin/features/categories/categories_screen_view.dart';
 import 'package:nextbestie_admin/features/create_article/create_article_screen.dart';
+import 'package:nextbestie_admin/features/create_new_news_letter/create_new_news_letter_screen_view.dart';
 import 'package:nextbestie_admin/features/home/home_layout.dart';
 import 'package:nextbestie_admin/features/login/login_screen_view.dart';
 import 'package:nextbestie_admin/features/news_letters/news_letters_screen_view.dart';
 import 'package:nextbestie_admin/features/splash/splash_screen_view.dart';
+import 'package:nextbestie_admin/features/user_details/user_details_screen_view.dart';
 import 'package:nextbestie_admin/features/user_reports/user_reports_screen_view.dart';
 
 class AppRouter {
@@ -56,7 +58,8 @@ class AppRouter {
                 path: RouteNames.addCategory,
                 name: RouteNames.addCategory,
                 builder: (context, state) =>
-                    const Center(child: Text('Add Category')),
+                    // const CreateNewCategoryScreenView(),
+                    SizedBox(),
               ),
               GoRoute(
                 path: RouteNames.newsletters,
@@ -67,7 +70,7 @@ class AppRouter {
                 path: RouteNames.addNewsletter,
                 name: RouteNames.addNewsletter,
                 builder: (context, state) =>
-                    const Center(child: Text('Add Newsletter')),
+                    const CreateNewNewsLetterScreenView(),
               ),
               GoRoute(
                 path: RouteNames.userReports,
@@ -79,6 +82,13 @@ class AppRouter {
                 name: RouteNames.blockedUsers,
                 builder: (context, state) {
                   return const BlockedScreenView();
+                },
+              ),
+              GoRoute(
+                path: RouteNames.userDetails,
+                name: RouteNames.userDetails,
+                builder: (context, state) {
+                  return const UserDetailsScreenView();
                 },
               ),
             ],

@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nextbestie_admin/core/base/base_controller.dart';
 
-class CreateArticleController extends BaseController {
-  CreateArticleController(super.iNavigator);
+class CreateNewNewsLetterScreenController extends BaseController {
+  CreateNewNewsLetterScreenController(super.iNavigator);
 
   // Text controllers
   final TextEditingController titleController = TextEditingController();
-  final TextEditingController categoryController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
 
   // Image management
   List<XFile> selectedImages = [];
 
-  String? selectedCategory;
+  String? selectedNewsLetter;
 
   @override
   void onInit() {

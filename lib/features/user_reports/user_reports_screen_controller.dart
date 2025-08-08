@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextbestie_admin/core/base/base_controller.dart';
+import 'package:nextbestie_admin/core/pages/route_names.dart';
 
 class UserReports {
   final String userName;
@@ -68,5 +69,9 @@ class UserReportsScreenController extends BaseController {
     currentPage = 1;
     hasMoreData = allUserReports.length > itemsPerPage;
     update();
+  }
+
+  void navigateToUserDetails() {
+    iNavigator.pushNamed(RouteNames.userDetails);
   }
 }

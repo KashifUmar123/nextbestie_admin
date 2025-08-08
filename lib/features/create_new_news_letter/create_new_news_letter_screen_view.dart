@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nextbestie_admin/core/constants/app_colors.dart';
@@ -12,15 +9,15 @@ import 'package:nextbestie_admin/core/widgets/custom_back_button.dart';
 import 'package:nextbestie_admin/core/widgets/custom_button.dart';
 import 'package:nextbestie_admin/core/widgets/custom_image_picker.dart';
 import 'package:nextbestie_admin/core/widgets/custom_textfield.dart';
-import 'package:nextbestie_admin/features/create_article/create_article_controller.dart';
+import 'package:nextbestie_admin/features/create_new_news_letter/create_new_newsletter_screen_controller.dart';
 
-class CreateArticleScreen extends StatelessWidget {
-  const CreateArticleScreen({super.key});
+class CreateNewNewsLetterScreenView extends StatelessWidget {
+  const CreateNewNewsLetterScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
-      init: CreateArticleController(Get.find<INavigator>()),
+      init: CreateNewNewsLetterScreenController(Get.find<INavigator>()),
       builder: (controller) {
         return SingleChildScrollView(
           padding: EdgeInsets.all(24),
@@ -31,7 +28,6 @@ class CreateArticleScreen extends StatelessWidget {
               32.verticalSpace,
               _buildTitleSection(context, controller),
               24.verticalSpace,
-              _buildCategorySection(context, controller),
               24.verticalSpace,
               _buildDescriptionSection(context, controller),
               24.verticalSpace,
@@ -51,7 +47,7 @@ class CreateArticleScreen extends StatelessWidget {
         CustomBackButton(),
         16.horizontalSpace,
         Text(
-          "Create new article",
+          "Create new News Letter",
           style: context.label20500.copyWith(
             fontWeight: FontWeight.w600,
           ),
@@ -61,7 +57,7 @@ class CreateArticleScreen extends StatelessWidget {
   }
 
   Widget _buildTitleSection(
-      BuildContext context, CreateArticleController controller) {
+      BuildContext context, CreateNewNewsLetterScreenController controller) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -83,84 +79,8 @@ class CreateArticleScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCategorySection(
-      BuildContext context, CreateArticleController controller) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Category",
-            style: context.label14400.copyWith(
-              color: AppColors.articleTextColor,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          8.verticalSpace,
-          // CategoryDropdown(
-          //   value: controller.selectedCategory,
-          //   onChanged: (v) {
-          //     controller.selectedCategory = v;
-          //     controller.update();
-          //   },
-          // ),
-
-          DropdownButtonHideUnderline(
-            child: DropdownButton2<String>(
-              // focusNode: focusNode,
-              dropdownStyleData: DropdownStyleData(
-                decoration: BoxDecoration(
-                  color: AppColors.splashBackground,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(16),
-                    bottomRight: Radius.circular(16),
-                  ),
-                ),
-              ),
-              isExpanded: true,
-              iconStyleData: IconStyleData(
-                icon: Transform.rotate(
-                  angle: pi / 2,
-                  child: Icon(Icons.keyboard_arrow_down_rounded,
-                      color: AppColors.white),
-                ),
-              ),
-              // hint: Text('Add Category'),
-
-              items: [
-                DropdownMenuItem(value: 'Fitness', child: Text('Fitness')),
-                DropdownMenuItem(value: 'Health', child: Text('Health')),
-                DropdownMenuItem(value: 'Tech', child: Text('Tech')),
-                DropdownMenuItem(child: Text('Add New Category')),
-              ],
-              value: controller.selectedCategory,
-              onChanged: (String? value) {
-                if (value == null) return;
-                print(value);
-                controller.selectedCategory = value;
-                controller.update();
-              },
-              buttonStyleData: ButtonStyleData(
-                overlayColor: WidgetStateProperty.all(AppColors.black),
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.iconColor),
-                  color: AppColors.textFieldFilled,
-                  borderRadius: kRadiusAll(8),
-                ),
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                height: 50,
-                width: 398,
-              ),
-              menuItemStyleData: const MenuItemStyleData(height: 40),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildDescriptionSection(
-      BuildContext context, CreateArticleController controller) {
+      BuildContext context, CreateNewNewsLetterScreenController controller) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -185,7 +105,7 @@ class CreateArticleScreen extends StatelessWidget {
   }
 
   Widget _buildImageSection(
-      BuildContext context, CreateArticleController controller) {
+      BuildContext context, CreateNewNewsLetterScreenController controller) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -213,7 +133,7 @@ class CreateArticleScreen extends StatelessWidget {
   }
 
   Widget _buildImageGrid(
-      BuildContext context, CreateArticleController controller) {
+      BuildContext context, CreateNewNewsLetterScreenController controller) {
     return Container(
       height: 120,
       decoration: BoxDecoration(
@@ -255,7 +175,7 @@ class CreateArticleScreen extends StatelessWidget {
   }
 
   Widget _buildAddImageButton(
-      BuildContext context, CreateArticleController controller) {
+      BuildContext context, CreateNewNewsLetterScreenController controller) {
     return GestureDetector(
       onTap: controller.pickImages,
       child: Container(
@@ -350,7 +270,7 @@ class CreateArticleScreen extends StatelessWidget {
   }
 
   Widget _buildActionButtons(
-      BuildContext context, CreateArticleController controller) {
+      BuildContext context, CreateNewNewsLetterScreenController controller) {
     return Row(
       children: [
         CustomButton(

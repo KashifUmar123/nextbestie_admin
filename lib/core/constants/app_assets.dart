@@ -3,4 +3,5 @@ class AppAssets {
 
   // images
   static const String logo = "$_imagesBasePath/logo.png";
+  static const String dummyProfilePic = "$_imagesBasePath/dummyProfilePic.png";
 }

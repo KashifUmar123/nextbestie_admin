@@ -37,6 +37,7 @@ dependencies:
   shimmer: ^3.0.0
   go_router: ^14.6.1
   fluttertoast: ^8.2.12
+  dropdown_button2: ^2.3.9
 
 dev_dependencies:
   flutter_test:

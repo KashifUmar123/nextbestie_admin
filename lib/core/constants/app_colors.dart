@@ -19,4 +19,6 @@ class AppColors {
   static const Color redColor = Color(0XffEF4444);
   static const Color warningTextColor = Color(0Xff414141);
   static const Color articleTextColor = Color(0Xff828386);
+  static const Color emailColor = Color(0Xff994D52);
+  static const Color buttonGreyColor = Color(0Xfff2e8e8);
 }

@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nextbestie_admin/core/base/base_controller.dart';
-
-class Categories {
-  final String title;
-  final String category;
-
-  Categories({
-    required this.title,
-    required this.category,
-  });
-}
+import 'package:nextbestie_admin/core/models/category_model.dart';
+import 'package:nextbestie_admin/core/pages/route_names.dart';
+import 'package:nextbestie_admin/core/widgets/add_category_dialogue.dart';
 
 class CategoriesScreenController extends BaseController {
   CategoriesScreenController(super.iNavigator);
@@ -17,7 +10,7 @@ class CategoriesScreenController extends BaseController {
   final ScrollController scrollController = ScrollController();
 
   // Articles list
-  List<Categories> categories = [];
+  List<CategoryModel> categories = [];
 
   // Pagination state
   bool isLoadingMore = false;
@@ -25,27 +18,77 @@ class CategoriesScreenController extends BaseController {
   bool hasMoreData = true;
   final int itemsPerPage = 10;
 
-  final List<Categories> allCategories = [
-    Categories(title: 'Technology', category: 'technology'),
-    Categories(title: 'Health', category: 'health'),
-    Categories(title: 'Finance', category: 'finance'),
-    Categories(title: 'Sports', category: 'sports'),
-    Categories(title: 'Entertainment', category: 'entertainment'),
-    Categories(title: 'Science', category: 'science'),
-    Categories(title: 'Travel', category: 'travel'),
-    Categories(title: 'Food', category: 'food'),
-    Categories(title: 'Business', category: 'business'),
-    Categories(title: 'Education', category: 'education'),
-    Categories(title: 'Culture', category: 'culture'),
-    Categories(title: 'Environment', category: 'environment'),
-    Categories(title: 'Politics', category: 'politics'),
-    Categories(title: 'Lifestyle', category: 'lifestyle'),
-    Categories(title: 'Fashion', category: 'fashion'),
-    Categories(title: 'Gaming', category: 'gaming'),
-    Categories(title: 'Music', category: 'music'),
-    Categories(title: 'Real Estate', category: 'real_estate'),
-    Categories(title: 'Automotive', category: 'automotive'),
-    Categories(title: 'Pets', category: 'pets'),
+  final List<CategoryModel> allCategories = [
+    CategoryModel(
+      id: 'cat1',
+      title: 'Technology',
+      description: 'Latest tech news & tutorials',
+      createdAt: DateTime(2023, 1, 1),
+      updatedAt: DateTime(2023, 1, 1),
+    ),
+    CategoryModel(
+      id: 'cat2',
+      title: 'Sports',
+      description: 'Updates from the world of sports',
+      createdAt: DateTime(2023, 1, 2),
+      updatedAt: DateTime(2023, 1, 2),
+    ),
+    CategoryModel(
+      id: 'cat3',
+      title: 'Health',
+      description: 'Health tips and medical news',
+      createdAt: DateTime(2023, 1, 3),
+      updatedAt: DateTime(2023, 1, 3),
+    ),
+    CategoryModel(
+      id: 'cat4',
+      title: 'Entertainment',
+      description: 'Movies, music, and celebrity gossip',
+      createdAt: DateTime(2023, 1, 4),
+      updatedAt: DateTime(2023, 1, 4),
+    ),
+    CategoryModel(
+      id: 'cat5',
+      title: 'Business',
+      description: 'Market insights and business news',
+      createdAt: DateTime(2023, 1, 5),
+      updatedAt: DateTime(2023, 1, 5),
+    ),
+    CategoryModel(
+      id: 'cat6',
+      title: 'Science',
+      description: 'Discoveries and research highlights',
+      createdAt: DateTime(2023, 1, 6),
+      updatedAt: DateTime(2023, 1, 6),
+    ),
+    CategoryModel(
+      id: 'cat7',
+      title: 'Travel',
+      description: 'Destinations, tips, and guides',
+      createdAt: DateTime(2023, 1, 7),
+      updatedAt: DateTime(2023, 1, 7),
+    ),
+    CategoryModel(
+      id: 'cat8',
+      title: 'Food',
+      description: 'Recipes and restaurant reviews',
+      createdAt: DateTime(2023, 1, 8),
+      updatedAt: DateTime(2023, 1, 8),
+    ),
+    CategoryModel(
+      id: 'cat9',
+      title: 'Education',
+      description: 'Learning resources and news',
+      createdAt: DateTime(2023, 1, 9),
+      updatedAt: DateTime(2023, 1, 9),
+    ),
+    CategoryModel(
+      id: 'cat10',
+      title: 'Fashion',
+      description: 'Style trends and tips',
+      createdAt: DateTime(2023, 1, 10),
+      updatedAt: DateTime(2023, 1, 10),
+    ),
   ];
 
   @override
@@ -64,10 +107,22 @@ class CategoriesScreenController extends BaseController {
   void loadInitialCategories() {
     // Load first page of articles
     final startIndex = 0;
-    final endIndex = itemsPerPage;
+    final endIndex = itemsPerPage.clamp(0, allCategories.length);
+
     categories = allCategories.sublist(startIndex, endIndex);
     currentPage = 1;
     hasMoreData = allCategories.length > itemsPerPage;
     update();
+  }
+
+  void onAddNewCategory(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => AddCategoryDialogue(
+        leftButton: 'Add',
+        rightButton: 'Cancel',
+        // If your CustomDialogueBox supports callbacks, wire them:
+      ),
+    );
   }
 }

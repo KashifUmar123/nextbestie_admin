@@ -44,6 +44,7 @@ class CategoriesScreenView extends GetView<CategoriesScreenController> {
         ),
         const Spacer(),
         CustomButton(
+          onTap: () => controller.onAddNewCategory(context),
           text: "Create new category",
           // onTap: controller.onAddNewArticle,
           backgroundColor: AppColors.pink,
@@ -140,7 +141,7 @@ class CategoriesScreenView extends GetView<CategoriesScreenController> {
                     _buildArticleRow(
                       context,
                       category.title,
-                      category.category,
+                      category.description!,
                       onEdit: () => {},
                       onDelete: () => {},
                     ),
